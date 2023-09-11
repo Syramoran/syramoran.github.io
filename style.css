@@ -254,6 +254,7 @@ body {
     color: #121212;
     font-family: 'Montserrat', sans-serif;
     font-size: 1.2em;
+    padding: 0!important;
 }
 
 .contenedor_contacto{
@@ -442,8 +443,8 @@ input[type="submit"].fcf-btn-block, input[type="reset"].fcf-btn-block, input[typ
     }
     .loguitos{
         /* width: 100px; */
-        height: 80px;
-        max-width: 90px;
+        height: 50px;
+        max-width: 60px;
     }
     .contenedor_form{
         text-align: center;
