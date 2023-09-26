@@ -137,6 +137,13 @@ body {
     border-radius: 30px;
     padding: 30px;
 }
+
+#ejemplos{
+    font-size: 2em;
+    color: #121212;
+  font-family: 'Roboto Mono', monospace;
+  margin: 30px;
+}
 /*BOTON*/
 #bottone1 {
     padding-left: 44px;
