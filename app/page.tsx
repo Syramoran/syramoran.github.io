@@ -6,6 +6,7 @@ import Projects from "@/components/projects"
 import Stack from "@/components/stack"
 import Contact from "@/components/contact"
 import Footer from "@/components/footer"
+import Pricing from "@/components/pricing"
 
 export default function Home() {
   return (

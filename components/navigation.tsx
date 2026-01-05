@@ -2,15 +2,18 @@
 
 import { useState } from "react"
 import { Menu, X } from "lucide-react"
+import Link from "next/link"
 
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false)
 
   const menuItems = [
-    { label: "Sobre mí", href: "#about" },
-    { label: "Proyectos", href: "#projects" },
-    { label: "Stack", href: "#stack" },
-    { label: "Contacto", href: "#contact" },
+    { label: "Sobre mí", href: "/#about" },
+    { label: "Proyectos", href: "/#projects" },
+    { label: "Stack", href: "/#stack" },
+    { label: "Servicios", href: "/services" },
+    { label: "Contacto", href: "/#contact" },
+    
   ]
 
   return (
@@ -26,13 +29,13 @@ export default function Navigation() {
           {/* Desktop Menu */}
           <div className="hidden md:flex gap-8">
             {menuItems.map((item) => (
-              <a
+              <Link
                 key={item.label}
                 href={item.href}
                 className="text-sm text-muted-foreground hover:text-primary transition-colors duration-200"
               >
                 {item.label}
-              </a>
+              </Link>
             ))}
           </div>
 
@@ -49,14 +52,14 @@ export default function Navigation() {
         {isOpen && (
           <div className="md:hidden pb-4 space-y-4 border-t border-border pt-4">
             {menuItems.map((item) => (
-              <a
+              <Link
                 key={item.label}
                 href={item.href}
                 className="block text-sm text-muted-foreground hover:text-primary transition-colors"
                 onClick={() => setIsOpen(false)}
               >
                 {item.label}
-              </a>
+              </Link>
             ))}
           </div>
         )}
