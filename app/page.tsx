@@ -13,7 +13,7 @@ export default function Home() {
     <main className="bg-background text-foreground min-h-screen">
       <Navigation />
       <Hero />
-      <About />
+      {/* <About /> */}
       <Projects />
       <Stack />
       <Contact />

@@ -53,7 +53,7 @@ export default function Pricing() {
   return (
     <section id="pricing" className="py-20 mt-4 px-4 sm:px-6 lg:px-20 max-w-7xl mx-auto">
       <div className="text-center mb-12">
-        <h2 className="text-3xl md:text-4xl font-bold mb-4 text-balance">Planes de RRSS</h2>
+        <h2 className="text-3xl md:text-4xl font-bold mb-4 text-balance">Este 2026 potencía a tu empresa</h2>
         <p className="text-muted-foreground text-lg max-w-2xl mx-auto text-pretty">
           Elegí el plan que mejor se adapte a tus necesidades y objetivos de negocio
         </p>

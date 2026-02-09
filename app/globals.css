@@ -1,79 +1,88 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
-@custom-variant dark (&:is(.dark *));
+@custom-variant dark (&:where(.dark, .dark *));
 
 :root {
-  /* Light mode - White/Cream base with pink accents */
-  --background: rgb(253, 247, 241);
-  --foreground: oklch(0.15 0.02 240);
-  --card: oklch(0.99 0.01 70);
-  --card-foreground: oklch(0.15 0.02 240);
-  --popover: oklch(0.99 0.01 70);
-  --popover-foreground: oklch(0.15 0.02 240);
-  --primary: #DA1884;
-  --primary-foreground: oklch(0.99 0 0);
-  --secondary: oklch(0.92 0.02 70);
-  --secondary-foreground: oklch(0.15 0.02 240);
-  --muted: oklch(0.75 0.01 70);
-  --muted-foreground: oklch(0.45 0.02 240);
-  --accent: oklch(0.65 0.19 330);
-  --accent-foreground: oklch(0.99 0 0);
-  --destructive: oklch(0.577 0.245 27.325);
-  --destructive-foreground: oklch(0.97 0 0);
-  --border: oklch(0.9 0.01 70);
-  --input: oklch(0.98 0.01 70);
-  --ring: oklch(0.65 0.19 330);
-  --chart-1: oklch(0.65 0.19 330);
-  --chart-2: oklch(0.6 0.118 184.704);
-  --chart-3: oklch(0.398 0.07 227.392);
-  --chart-4: oklch(0.828 0.189 84.429);
-  --chart-5: oklch(0.769 0.188 70.08);
-  --radius: 0.625rem;
-  --sidebar: oklch(0.98 0.01 70);
-  --sidebar-foreground: oklch(0.15 0.02 240);
-  --sidebar-primary: oklch(0.65 0.19 330);
-  --sidebar-primary-foreground: oklch(0.99 0 0);
-  --sidebar-accent: oklch(0.92 0.02 70);
-  --sidebar-accent-foreground: oklch(0.15 0.02 240);
-  --sidebar-border: oklch(0.9 0.01 70);
-  --sidebar-ring: oklch(0.65 0.19 330);
-}
+      /* Light mode - White/Cream base with pink accents */
+      --background: #fdf7f1;
+      --foreground: #1d1d1d;
+      
+      --card: #ffffff;
+      --card-foreground: #1d1d1d;
+      
+      --popover: #ffffff;
+      --popover-foreground: #1d1d1d;
+      
+      --primary: #f24479;
+      --primary-foreground: #ffffff;
+      
+      --secondary: #fdf7f1;
+      --secondary-foreground: #1d1d1d;
+      
+      --muted: #f3f4f6;
+      --muted-foreground: #6b7280;
+      
+      --accent: #f24479;
+      --accent-foreground: #ffffff;
+      
+      --destructive: #ef4444;
+      --destructive-foreground: #ffffff;
+      
+      --border: #e5e7eb;
+      --input: #e5e7eb;
+      --ring: #f24479;
+      
+      --radius: 0.75rem;
+    }
 
-.dark {
-  --background: oklch(0.08 0 0);
-  --foreground: oklch(0.97 0 0);
-  --card: oklch(0.12 0 0);
-  --card-foreground: oklch(0.97 0 0);
-  --popover: oklch(0.12 0 0);
-  --popover-foreground: oklch(0.97 0 0);
-  --primary: oklch(0.65 0.19 330);
-  --primary-foreground: oklch(0.08 0 0);
-  --secondary: oklch(0.15 0 0);
-  --secondary-foreground: oklch(0.97 0 0);
-  --muted: oklch(0.25 0 0);
-  --muted-foreground: oklch(0.65 0 0);
-  --accent: oklch(0.65 0.19 330);
-  --accent-foreground: oklch(0.08 0 0);
-  --destructive: oklch(0.577 0.245 27.325);
-  --destructive-foreground: oklch(0.97 0 0);
-  --border: oklch(0.2 0 0);
-  --input: oklch(0.15 0 0);
-  --ring: oklch(0.65 0.19 330);
-  --chart-1: oklch(0.65 0.19 330);
-  --chart-2: oklch(0.6 0.118 184.704);
-  --chart-3: oklch(0.398 0.07 227.392);
-  --chart-4: oklch(0.828 0.189 84.429);
-  --chart-5: oklch(0.769 0.188 70.08);
-  --sidebar: oklch(0.08 0 0);
-  --sidebar-foreground: oklch(0.97 0 0);
-  --sidebar-primary: oklch(0.65 0.19 330);
-  --sidebar-primary-foreground: oklch(0.08 0 0);
-  --sidebar-accent: oklch(0.25 0 0);
-  --sidebar-accent-foreground: oklch(0.97 0 0);
-  --sidebar-border: oklch(0.2 0 0);
-  --sidebar-ring: oklch(0.65 0.19 330);
-}
+    .dark {
+      /* Dark mode - Deep Black base with pink accents */
+      --background: #1d1d1d;
+      --foreground: #fdf7f1;
+      
+      --card: #2a2a2a;
+      --card-foreground: #fdf7f1;
+      
+      --popover: #1d1d1d;
+      --popover-foreground: #fdf7f1;
+      
+      --primary: #f24479;
+      --primary-foreground: #ffffff;
+      
+      --secondary: #2a2a2a;
+      --secondary-foreground: #fdf7f1;
+      
+      --muted: #374151;
+      --muted-foreground: #9ca3af;
+      
+      --accent: #f24479;
+      --accent-foreground: #ffffff;
+      
+      --destructive: #7f1d1d;
+      --destructive-foreground: #fdf7f1;
+      
+      --border: #374151;
+      --input: #374151;
+      --ring: #f24479;
+    }
+
+
+
+
+    body {
+      background-color: var(--background);
+      color: var(--foreground);
+    }
+
+    /* Textures */
+    .texture-grain {
+      background-image: repeating-linear-gradient(90deg, 
+        transparent, 
+        transparent 2px, 
+        rgba(0, 0, 0, 0.03) 2px, 
+        rgba(0, 0, 0, 0.03) 4px);
+    }
 
 @theme inline {
   --font-sans: var(--font-sans), sans-serif;

@@ -1,134 +1,142 @@
-import { 
-  Database, 
-  Code2, 
-  Layers, 
-  Palette, 
-  Sparkles, 
+"use client"
+
+import React from "react"
+import {
+  Database,
+  Code2,
+  Layers,
+  Palette,
+  CheckCircle2,
+  BarChart3,
+  Smartphone,
   Terminal,
+  Lock,
+  Video,
+  Sparkles,
   Cpu
 } from "lucide-react"
 
-import { 
-  SiReact, 
-  SiAngular, 
-  SiNextdotjs, 
-  SiNestjs, 
-  SiTypescript, 
-  SiJavascript, 
-  SiPython, 
-  SiHtml5, 
-  SiPostgresql, 
-  SiMysql, 
-  SiMongodb, 
-  SiFigma, 
-  SiTailwindcss, 
-  SiGit, 
-  SiAdobe 
+import {
+  SiReact,
+  SiTypescript,
+  SiNestjs,
+  SiPython,
+  SiPostgresql,
+  SiTailwindcss,
+  SiMysql,
+  SiFigma,
+  SiAdobe,
+  SiGit,
+  SiMeta,
+  SiAngular
 } from "react-icons/si"
 
 export default function Stack() {
-  const stack = [
+  // 1. Organizamos la data exactamente como en la foto
+  const categories = [
     {
-      category: "Frameworks",
-      icon: Layers,
-      items: [
-        { name: "React", icon: SiReact, color: "text-blue-400" },
-        { name: "Angular", icon: SiAngular, color: "text-red-600" },
-        { name: "Nest", icon: SiNestjs, color: "text-red-500" },
-      ],
-    },
-    {
-      category: "Lenguajes",
+      title: "Desarrollo",
       icon: Code2,
       items: [
-        { name: "TypeScript", icon: SiTypescript, color: "text-blue-600" },
-        { name: "JavaScript", icon: SiJavascript, color: "text-yellow-400" },
-        { name: "Python", icon: SiPython, color: "text-blue-500" },
-        { name: "HTML5", icon: SiHtml5, color: "text-orange-600" },
+        { name: "React.js", logo: SiReact, color: "text-blue-400" },
+        { name: "TypeScript", logo: SiTypescript, color: "text-blue-600" },
+        { name: "Nest.js", logo: SiNestjs, color: "text-red-500" },
+        { name: "Python", logo: SiPython, color: "text-blue-500" },
+        { name: "Angular", logo: SiAngular, color: "text-red-600" },
+        { name: "Tailwind CSS", logo: SiTailwindcss, color: "text-cyan-400" },
       ],
     },
     {
-      category: "Bases de Datos",
+      title: "Marketing",
+      icon: BarChart3,
+      items: [
+        { name: "Meta Business Suite", logo: SiMeta, color: "text-blue-500" },
+        { name: "Edición de video", logo: Video, color: "text-primary" },
+        { name: "Analítica", logo: BarChart3, color: "text-primary" },
+        { name: "SEO", logo: GlobeIcon, color: "text-primary" },
+      ],
+    },
+    {
+      title: "Diseño",
+      icon: Smartphone,
+      items: [
+        { name: "Figma (UI/UX)", logo: SiFigma, color: "text-pink-500" },
+        { name: "Affinity Suite", logo: Palette, color: "text-primary" },
+        { name: "Prototipado", logo: Layers, color: "text-primary" },
+        { name: "Git", logo: SiGit, color: "text-orange-600" },
+        { name: "Adobe Suite", logo: SiAdobe, color: "text-red-600" },
+      ],
+    },
+    {
+      title: "Bases de Datos",
       icon: Database,
       items: [
-        { name: "PostgreSQL", icon: SiPostgresql, color: "text-blue-400" },
-        { name: "MySQL", icon: SiMysql, color: "text-blue-500" },
-      ],
-    },
-    {
-      category: "Herramientas",
-      icon: Palette,
-      items: [
-        { name: "Figma", icon: SiFigma, color: "text-pink-500" },
-        { name: "Tailwind", icon: SiTailwindcss, color: "text-cyan-400" },
-        { name: "Git", icon: SiGit, color: "text-orange-600" },
-        { name: "Adobe Suite", icon: SiAdobe, color: "text-red-600" },
+        { name: "PostgreSQL", logo: SiPostgresql, color: "text-blue-400" },
+        { name: "MySQL", logo: SiMysql, color: "text-blue-500" },
+        { name: "Modelado ERD", logo: Layers, color: "text-primary" },
+        { name: "Seguridad y Hashing", logo: Lock, color: "text-primary" },
       ],
     },
   ]
 
   return (
-    <section id="stack" className="py-10 px-4 sm:px-6 lg:px-20">
-      <div className="w-full mx-auto">
-        <h2 className="text-4xl font-bold mb-4">
-          Mi <span className="font-cursive text-4xl text-primary">stack</span> técnico
-        </h2>
-        <div className="h-1 w-24 bg-primary mb-12 rounded-full"></div>
+    <section id="stack" className="py-24 px-6 border-y border-border bg-card/30">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-20 w-full">
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {stack.map((category) => (
-            <div key={category.category} className="space-y-4">
-              <div className="flex items-center gap-2 mb-6">
-                <div className="p-2 bg-primary/10 rounded-lg text-primary">
-                    <category.icon size={24} />
-                </div>
-                <h3 className="font-mono font-bold text-lg text-foreground">{category.category}</h3>
+        {/* Cabecera con estilo Layers */}
+        <div className="flex items-center gap-3 mb-12">
+          <Layers className="text-primary" size={32} />
+          <h2 className="text-3xl md:text-4xl font-bold font-sans text-foreground">
+            Mi Stack <span className="font-cursive text-primary">tecnológico</span>
+          </h2>
+        </div>
+
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {categories.map((card, idx) => (
+            <div
+              key={idx}
+              className="p-8 rounded-3xl border border-border bg-card shadow-sm hover:shadow-xl hover:shadow-primary/10 hover:border-primary/50"
+            >
+              {/* Icono de Categoría */}
+              <div className="w-12 h-12 rounded-2xl flex items-center justify-center mb-6 text-primary bg-background shadow-sm group-hover:scale-110 transition-transform">
+                <card.icon size={28} />
               </div>
 
-              <div className="space-y-3">
-                {category.items.map((item) => (
-                  <div key={item.name} className="group cursor-pointer">
-                    <div className="bg-card border border-border/50 hover:border-primary/50 rounded-lg p-3 px-6 flex items-center justify-between gap-3 transition-all duration-300 group-hover:transform group-hover:scale-105 group-hover:shadow-md">
-                      
-                      <p className="text-foreground font-semibold text-sm font-sans group-hover:text-primary transition-colors">
+              <h3 className="text-xl font-bold mb-6 text-foreground">{card.title}</h3>
+
+              <ul className="space-y-4">
+                {card.items.map((item) => (
+                  <li key={item.name} className="flex items-center justify-between group/item">
+                    <div className="flex items-center gap-3">
+                      <CheckCircle2 size={16} className="text-primary opacity-50 group-hover/item:opacity-100 transition-opacity" />
+                      <span className="text-sm font-medium text-muted-foreground group-hover/item:text-foreground transition-colors">
                         {item.name}
-                      </p>
-                      
-                      {/* Icono de la tecnología con su color de marca */}
-                      <item.icon className={`text-2xl ${item.color} transition-colors`} />
-                      
-                      
+                      </span>
                     </div>
-                  </div>
+                    <item.logo className={`text-xl ${item.color} opacity-70 group-hover/item:opacity-100 transition-all`} />
+                  </li>
                 ))}
-              </div>
+              </ul>
             </div>
           ))}
         </div>
-
-        {/* Additional skill highlights */}
-        {/* <div className="mt-16 pt-12 border-t border-border">
-          <h3 className="text-xl font-bold mb-6 flex items-center gap-2">
-            <span className="text-2xl">✨</span>
-            Especialidades
-          </h3>
-          <div className="grid md:grid-cols-3 gap-4">
-            {[
-              { skill: "Full Stack Development", desc: "Frontend + Backend" },
-              { skill: "Responsive Design", desc: "Mobile-first approach" },
-              { skill: "UX/UI Integration", desc: "Design & Code" },
-            ].map((item) => (
-              <div
-                key={item.skill}
-                className="texture-dots p-4 rounded-lg border border-border hover:border-primary/50 transition-colors"
-              >
-                <p className="font-bold text-foreground text-sm">{item.skill}</p>
-                <p className="text-muted-foreground text-xs mt-1">{item.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div> */}
       </div>
     </section>
+  )
+}
+
+// Fallback para el icono de SEO que no estaba importado
+function GlobeIcon({ className }: { className?: string }) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="24" height="24"
+      viewBox="0 0 24 24" fill="none"
+      stroke="currentColor" strokeWidth="2"
+      strokeLinecap="round" strokeLinejoin="round"
+      className={className}
+    >
+      <circle cx="12" cy="12" r="10" /><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" /><path d="M2 12h20" />
+    </svg>
   )
 }

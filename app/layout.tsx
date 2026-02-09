@@ -3,7 +3,8 @@ import type { Metadata } from "next"
 import { Analytics } from "@vercel/analytics/next"
 import "./globals.css"
 import { Montserrat, Playball, Google_Sans_Code } from "next/font/google"
-
+// 1. Importamos el proveedor que creamos antes
+import { ThemeProvider } from "@/components/theme-provider" 
 
 const _sans = Montserrat({ 
   subsets: ["latin"],
@@ -51,10 +52,23 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="es" className={`${_sans.variable} ${_cursive.variable} ${_mono.variable}`}>
+    // 2. AGREGAMOS suppressHydrationWarning aquí. 
+    // Es OBLIGATORIO porque next-themes modifica esta etiqueta al cargar.
+    <html 
+      lang="es" 
+      className={`${_sans.variable} ${_cursive.variable} ${_mono.variable}`}
+      suppressHydrationWarning 
+    >
       <body className={`font-sans antialiased bg-background text-foreground min-h-screen`}>
-        {children}
-        <Analytics />
+        {/* 3. ENVOLVEMOS TODO con el ThemeProvider */}
+        <ThemeProvider 
+          attribute="class" 
+          defaultTheme="light" 
+          enableSystem={false}
+        >
+          {children}
+          <Analytics />
+        </ThemeProvider>
       </body>
     </html>
   )

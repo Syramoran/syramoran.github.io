@@ -14,8 +14,8 @@ export default function Contact() {
   }
 
   return (
-    <section id="contact" className="py-10 px-4 sm:px-6 lg:px-20">
-      <div className="w-full mx-auto">
+    <section id="contact" className="py-24 px-6">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-20 w-full">
         <h2 className="text-4xl font-bold mb-4">
           <span className="font-cursive text-4xl text-primary">Contacto</span>
         </h2>
