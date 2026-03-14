@@ -19,6 +19,14 @@ export default function Projects() {
       image: "webbellafarma.png"
     },
     {
+      title: "festejá",
+      category: "programación",
+      desc: "Plataforma para armar tu propia invitación digital personalizada con opciones de diseño.",
+      tags: ["En desarrollo", "Código libre"],
+      link: "https://github.com/Syramoran/Invitaciones",
+      image: "webfesteja.png"
+    },
+    {
       title: "CowiX",
       category: "marketing",
       desc: "Estrategia de contenidos y gestión de comunidad enfocada en engagement y retención. MOII AGENCY",
@@ -51,6 +59,14 @@ export default function Projects() {
       tags: ["Angular", "TypeScript", "Swiper"],
       link: "https://bajocerosoluciones.com/", 
       image: "webbajocero.png"
+    },
+    {
+      title: "festejá",
+      category: "programación",
+      desc: "Panel de administración para gestionar invitaciones digitales personalizadas.",
+      tags: ["En desarrollo", "Código libre"],
+      link: "https://github.com/Syramoran/Invitaciones",
+      image: "webfestejaadmin.png"
     },
     {
       title: "Bajo Cero",
