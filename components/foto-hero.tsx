@@ -12,7 +12,7 @@ export default function ProfilePhoto() {
         {/* Contenedor de la foto: Aumentamos de 80 a 112 (o medida custom) */}
         <div className="relative w-64 h-64 md:w-[400px] md:h-[400px] rounded-[3rem] overflow-hidden border-2 border-border group-hover:border-primary/50 transition-all duration-500 shadow-2xl bg-card">
           <img 
-            src="/fotosyra.jpg" 
+            src="/fotoosyra.png" 
             alt="Syra Moran - Desarrollo Web & Ingeniería"
             className="w-full h-full object-cover transition-all duration-1000 scale-110 group-hover:scale-100"
           />
