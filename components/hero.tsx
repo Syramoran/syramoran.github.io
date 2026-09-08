@@ -1,3 +1,6 @@
+"use client"
+
+import { useState, useEffect } from "react"
 import Link from "next/link"
 import { ArrowUpRight, Download, Heart, Sparkles, Linkedin } from "lucide-react"
 import { SiGithub } from "@icons-pack/react-simple-icons"
@@ -5,6 +8,42 @@ import { SiGithub } from "@icons-pack/react-simple-icons"
 const disciplinas = ["Desarrollo Web", "Marketing Digital", "Ingeniería Electrónica","Diseño UI/UX"]
 
 export default function Hero() {
+  const fullText = "¡Hola! soy Syra"
+  const [displayedText, setDisplayedText] = useState("")
+
+  useEffect(() => {
+    let index = 0
+    let isDeleting = false
+    let timeoutId: NodeJS.Timeout
+
+    const type = () => {
+      if (!isDeleting) {
+        if (index <= fullText.length) {
+          setDisplayedText(fullText.slice(0, index))
+          index++
+          timeoutId = setTimeout(type, 110)
+        } else {
+          // Pausa con el texto completo
+          timeoutId = setTimeout(() => {
+            isDeleting = true
+            type()
+          }, 3500)
+        }
+      } else {
+        if (index > 0) {
+          index--
+          setDisplayedText(fullText.slice(0, index))
+          timeoutId = setTimeout(type, 50)
+        } else {
+          isDeleting = false
+          timeoutId = setTimeout(type, 600)
+        }
+      }
+    }
+
+    timeoutId = setTimeout(type, 300)
+    return () => clearTimeout(timeoutId)
+  }, [])
   return (
     <section className="relative isolate overflow-hidden bg-gradient-to-b from-background to-primary/[0.05] px-4 pb-16 pt-28 sm:px-6 lg:flex lg:min-h-screen lg:items-center lg:px-10">
       {/* ─────────── Capa de manchas orgánicas (fondo) ─────────── */}
@@ -29,20 +68,13 @@ export default function Hero() {
             aria-hidden
             className="blob pointer-events-none absolute left-[63.5%] top-[12%] z-20 hidden h-[70px] w-[70px] rotate-12 bg-primary lg:block"
           />
-          <span
-            aria-hidden
-            className="blob--alt pointer-events-none absolute left-[30%] top-[46%] z-20 hidden h-16 w-16 -rotate-6 bg-primary lg:block"
-          />
-          <span
-            aria-hidden
-            className="blob pointer-events-none absolute left-[59%] top-[80%] z-20 hidden h-14 w-14 rotate-6 bg-[#141414] lg:block"
-          />
+
 
           {/* A · Titular */}
           <div className="group relative flex flex-col justify-between overflow-hidden rounded-[2rem] border border-border bg-card/95 p-7 shadow-[0_28px_70px_-34px_rgba(242,68,121,0.35)] backdrop-blur-sm transition-transform duration-300 ease-out hover:-translate-y-1 sm:p-9 lg:col-span-4 lg:col-start-1 lg:row-span-2 lg:row-start-1 dark:border-white/10">
             <div>
               <span className="inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.22em] text-primary">
-                Portfolio
+                Portfolio 2026
               </span>
               <h1 className="mt-4 text-3xl font-bold leading-[1.1] text-balance sm:text-4xl xl:text-5xl">
                 Traduzco la <span className="text-primary">complejidad</span> de tu empresa en{" "}
@@ -72,8 +104,9 @@ export default function Hero() {
             <span className="absolute left-4 top-4 rounded-full bg-background/85 px-3 py-1.5 font-mono text-[10px] uppercase tracking-wider backdrop-blur">
               Open to work
             </span>
-            <p className="absolute bottom-4 left-5 right-5 font-cursive text-2xl text-white drop-shadow-lg">
-              ¡Hola! soy Syra
+            <p className="absolute bottom-4 left-5 right-5 flex min-h-[2rem] items-center font-cursive text-2xl text-white drop-shadow-lg">
+              <span>{displayedText}</span>
+              <span className="ml-1 inline-block h-6 w-[2px] animate-pulse bg-primary" />
             </p>
           </div>
 
