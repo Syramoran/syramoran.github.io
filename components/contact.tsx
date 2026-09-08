@@ -1,6 +1,6 @@
 "use client"
 
-import { Copy, Mail, Download } from "lucide-react"
+import { Copy, Mail, Download, MessageCircle } from "lucide-react"
 import { useState } from "react"
 
 export default function Contact() {
@@ -21,7 +21,7 @@ export default function Contact() {
         </h2>
         <div className="h-1 w-24 bg-primary mb-12 rounded-full"></div>
 
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="grid md:grid-cols-3 gap-8">
           {/* Email */}
           <div>
             <h3 className="font-mono font-bold text-primary mb-4">Email</h3>
@@ -36,12 +36,29 @@ export default function Contact() {
             <p className="text-xs text-muted-foreground mt-2">{copied ? "✓ Email copiado" : "Click para copiar"}</p>
           </div>
 
+          {/* WhatsApp */}
+          <div>
+            <h3 className="font-mono font-bold text-primary mb-4">WhatsApp</h3>
+            <a
+              href="https://wa.me/5493435083034"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors"
+            >
+              <MessageCircle size={20} />
+              <span className="text-sm font-mono">+54 9 343 508 3034</span>
+            </a>
+            <p className="text-xs text-muted-foreground mt-2">Click para chatear</p>
+          </div>
+
           {/* CV */}
           <div>
             <h3 className="font-mono font-bold text-primary mb-4">CV</h3>
             <a
-              href="/cv.pdf"
-              download="Syra_Moran_CV.pdf"
+              href="/cv_moran.pdf"
+              download="cv_moran.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-4 py-2 border border-primary text-primary rounded-lg hover:bg-primary/10 transition-colors font-mono text-sm"
             >
               <Download size={16} /> {/* Icono visual */}

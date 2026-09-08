@@ -167,3 +167,50 @@
         rgba(230, 115, 185, 0.03) 2px);
   }
 }
+
+/* ── Hero: grids orgánicas ───────────────────────────────── */
+/* Formas blandas tipo "mancha" reutilizables (borde-radio de 8 valores) */
+.blob {
+  border-radius: 42% 58% 63% 37% / 45% 42% 58% 55%;
+}
+
+.blob--alt {
+  border-radius: 63% 37% 44% 56% / 55% 60% 40% 45%;
+}
+
+@keyframes blob-morph {
+
+  0%,
+  100% {
+    border-radius: 42% 58% 63% 37% / 45% 42% 58% 55%;
+  }
+
+  50% {
+    border-radius: 62% 38% 46% 54% / 58% 56% 44% 42%;
+  }
+}
+
+@keyframes blob-drift {
+
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+
+  50% {
+    transform: translate3d(-3%, 4%, 0) scale(1.05);
+  }
+}
+
+/* La animación se aplica a un hijo aparte del que lleva el blur,
+   así el filtro y el transform no compiten. */
+.animate-blob {
+  animation: blob-morph 18s ease-in-out infinite, blob-drift 24s ease-in-out infinite;
+  will-change: transform, border-radius;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-blob {
+    animation: none;
+  }
+}

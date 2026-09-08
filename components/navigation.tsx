@@ -61,7 +61,7 @@ export default function Navigation() {
             </button>
             
             <a 
-              href="https://wa.me/3435083034"
+              href="https://wa.me/5493435083034"
               target="_blank"
               rel="noopener noreferrer"
               className="bg-primary hover:opacity-90 text-primary-foreground px-5 py-2 rounded-full text-sm font-bold transition-all shadow-lg shadow-primary/20"
@@ -102,7 +102,7 @@ export default function Navigation() {
               </Link>
             ))}
             <Link 
-              href="https://wa.me/3435083034" 
+              href="https://wa.me/5493435083034" 
               className="block text-primary font-bold pt-2"
               onClick={() => setIsOpen(false)}
             >
