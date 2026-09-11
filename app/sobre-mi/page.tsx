@@ -37,8 +37,8 @@ export default function SobreMiPage() {
         </p>
       </div>
 
-      <About />
       <Stack />
+      <About />
       <Footer />
     </main>
   )
