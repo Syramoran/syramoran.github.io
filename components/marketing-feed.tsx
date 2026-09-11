@@ -2,15 +2,16 @@
 
 import { useEffect, useState } from "react"
 import { Instagram, ImageIcon, Play } from "lucide-react"
+import { useLanguage } from "@/components/language-provider"
 
-type Stat = { label: string; value: string }
+type Stat = { label: { es: string; en: string }; value: string }
 
 type SocialAccount = {
   name: string
   handle: string
   url: string
   avatar: string
-  bio?: string
+  bio?: { es: string; en: string }
   stats: Stat[]
   mediaBase: string
   posts: string[]
@@ -33,11 +34,14 @@ const accounts: SocialAccount[] = [
     handle: "@tecnoagro",
     url: "https://instagram.com/tecnoagro",
     avatar: "/mkt/tecnoagro/avatar.jpg",
-    bio: "Contenido y comunicación digital para el agro",
+    bio: {
+      es: "Contenido y comunicación digital para el agro",
+      en: "Content and digital communication for the agriculture sector",
+    },
     stats: [
-      { label: "Posteos", value: "40" },
-      { label: "Seguidores", value: "+142%" },
-      { label: "Interac.", value: "+22%" },
+      { label: { es: "Posteos", en: "Posts" }, value: "40" },
+      { label: { es: "Seguidores", en: "Followers" }, value: "+142%" },
+      { label: { es: "Interac.", en: "Engagement" }, value: "+22%" },
     ],
     mediaBase: "/mkt/tecnoagro",
     posts: ["1.mp4", "2.png", "3.png"],
@@ -47,11 +51,14 @@ const accounts: SocialAccount[] = [
     handle: "@bajocero.ref",
     url: "https://instagram.com/bajocero.ref",
     avatar: "/mkt/bajocero/avatar.jpg",
-    bio: "Campaña publicitaria y gestión de redes sociales",
+    bio: {
+      es: "Campaña publicitaria y gestión de redes sociales",
+      en: "Advertising campaign and social media management",
+    },
     stats: [
-      { label: "Posteos", value: "49" },
-      { label: "Seguidores", value: "+127%" },
-      { label: "Views", value: "14,5k" },
+      { label: { es: "Posteos", en: "Posts" }, value: "49" },
+      { label: { es: "Seguidores", en: "Followers" }, value: "+127%" },
+      { label: { es: "Views", en: "Views" }, value: "14,5k" },
     ],
     mediaBase: "/mkt/bajocero",
     posts: ["1.png", "2.png", "3.mp4"],
@@ -61,11 +68,14 @@ const accounts: SocialAccount[] = [
     handle: "@cowix.ok",
     url: "https://instagram.com/cowix.ok",
     avatar: "/mkt/cowix/avatar.jpg",
-    bio: "Estrategia de contenidos y gestión de comunidad · MOII Agency",
+    bio: {
+      es: "Estrategia de contenidos y gestión de comunidad · MOII Agency",
+      en: "Content strategy and community management · MOII Agency",
+    },
     stats: [
-      { label: "Posteos", value: "350" },
-      { label: "Seguidores", value: "+138%" },
-      { label: "Alcance", value: "+143%" },
+      { label: { es: "Posteos", en: "Posts" }, value: "350" },
+      { label: { es: "Seguidores", en: "Followers" }, value: "+138%" },
+      { label: { es: "Alcance", en: "Reach" }, value: "+143%" },
     ],
     mediaBase: "/mkt/cowix",
     posts: ["video.mp4", "2.png", "video2.mp4"],
@@ -75,27 +85,33 @@ const accounts: SocialAccount[] = [
     handle: "@centroquiropracticohundt",
     url: "https://instagram.com/centroquiropracticohundt",
     avatar: "/mkt/cqmh/avatar.jpg",
-    bio: "Edición de contenidos y gestión de redes · MOII Agency",
+    bio: {
+      es: "Edición de contenidos y gestión de redes · MOII Agency",
+      en: "Content editing and social media management · MOII Agency",
+    },
     stats: [
-      { label: "Posteos", value: "320" },
-      { label: "Seguidores", value: "+115%" },
-      { label: "Views", value: "15,6k" },
+      { label: { es: "Posteos", en: "Posts" }, value: "320" },
+      { label: { es: "Seguidores", en: "Followers" }, value: "+115%" },
+      { label: { es: "Views", en: "Views" }, value: "15,6k" },
     ],
     mediaBase: "/mkt/cqmh",
     posts: ["1.png", "2.png", "3.mp4"],
   },
-  
-  
+
+
   {
     name: "UCA · Ingreso Paraná",
     handle: "@ucaingresoparana",
     url: "https://instagram.com/ucaingresoparana",
     avatar: "/mkt/uca-ingreso/avatar.jpg",
-    bio: "Difusión de carreras y campaña de ingreso · UCA Paraná MOII Agency",
+    bio: {
+      es: "Difusión de carreras y campaña de ingreso · UCA Paraná MOII Agency",
+      en: "Program outreach and enrollment campaign · UCA Paraná MOII Agency",
+    },
     stats: [
-      { label: "Posteos", value: "52" },
-      { label: "Seguidores", value: "+108%" },
-      { label: "Alcance", value: "+30%" },
+      { label: { es: "Posteos", en: "Posts" }, value: "52" },
+      { label: { es: "Seguidores", en: "Followers" }, value: "+108%" },
+      { label: { es: "Alcance", en: "Reach" }, value: "+30%" },
     ],
     mediaBase: "/mkt/uca-ingreso",
     posts: ["1.png", "2.png", "3.mp4"],
@@ -105,16 +121,24 @@ const accounts: SocialAccount[] = [
     handle: "@colegioveterinarios.entrerios",
     url: "https://instagram.com/colegioveterinarios.entrerios",
     avatar: "/mkt/colegio-veterinarios/avatar.jpg",
-    bio: "Comunicación institucional y contenidos para colegiados · MOII Agency",
+    bio: {
+      es: "Comunicación institucional y contenidos para colegiados · MOII Agency",
+      en: "Institutional communication and content for members · MOII Agency",
+    },
     stats: [
-      { label: "Posteos", value: "45" },
-      { label: "Seguidores", value: "+134%" },
-      { label: "Interac.", value: "+18%" },
+      { label: { es: "Posteos", en: "Posts" }, value: "45" },
+      { label: { es: "Seguidores", en: "Followers" }, value: "+134%" },
+      { label: { es: "Interac.", en: "Engagement" }, value: "+18%" },
     ],
     mediaBase: "/mkt/colegio-veterinarios",
     posts: ["1.png", "2.png", "3.png"],
   },
 ]
+
+const copy = {
+  es: { follow: "Seguir", mediaPlaceholder: "Foto / video" },
+  en: { follow: "Follow", mediaPlaceholder: "Photo / video" },
+}
 
 function useMediaExists(src: string, enabled = true) {
   const [ok, setOk] = useState(false)
@@ -150,7 +174,7 @@ function Avatar({ src, name }: { src: string; name: string }) {
   )
 }
 
-function PostTile({ base, file }: { base: string; file: string }) {
+function PostTile({ base, file, placeholder }: { base: string; file: string; placeholder: string }) {
   const isVideo = /\.(mp4|webm|mov)$/i.test(file)
   const src = file ? `${base}/${file}` : ""
   const imgOk = useMediaExists(src, Boolean(src) && !isVideo)
@@ -182,7 +206,7 @@ function PostTile({ base, file }: { base: string; file: string }) {
       ) : (
         <div className="w-full h-full flex flex-col items-center justify-center gap-1 border border-dashed border-[var(--border)] rounded-sm text-[var(--muted-foreground)]/50">
           <ImageIcon size={18} />
-          <span className="text-[9px] uppercase tracking-wider">Foto / video</span>
+          <span className="text-[9px] uppercase tracking-wider">{placeholder}</span>
         </div>
       )}
 
@@ -196,7 +220,7 @@ function PostTile({ base, file }: { base: string; file: string }) {
   )
 }
 
-function AccountCard({ account }: { account: SocialAccount }) {
+function AccountCard({ account, lang, t }: { account: SocialAccount; lang: "es" | "en"; t: (typeof copy)["es"] }) {
   return (
     <div className="rounded-2xl border border-[var(--border)] bg-[var(--card)] overflow-hidden shadow-sm hover:shadow-xl hover:shadow-[var(--primary)]/10 transition-shadow">
       {/* Encabezado tipo perfil */}
@@ -213,28 +237,28 @@ function AccountCard({ account }: { account: SocialAccount }) {
           className="shrink-0 flex items-center gap-1.5 bg-[var(--primary)] text-white text-xs font-bold px-3 py-1.5 rounded-lg hover:opacity-90 transition-opacity"
         >
           <Instagram size={13} />
-          Seguir
+          {t.follow}
         </a>
       </div>
 
       {/* Datos estadísticos */}
       <div className="flex border-y border-[var(--border)]">
         {account.stats.map((s) => (
-          <div key={s.label} className="flex-1 text-center py-3 px-1">
+          <div key={s.label.es} className="flex-1 text-center py-3 px-1">
             <p className="font-bold text-sm text-[var(--foreground)]">{s.value}</p>
-            <p className="text-[10px] uppercase tracking-wider text-[var(--muted-foreground)]">{s.label}</p>
+            <p className="text-[10px] uppercase tracking-wider text-[var(--muted-foreground)]">{s.label[lang]}</p>
           </div>
         ))}
       </div>
 
       {account.bio && (
-        <p className="px-4 py-2.5 text-xs text-[var(--muted-foreground)] leading-relaxed">{account.bio}</p>
+        <p className="px-4 py-2.5 text-xs text-[var(--muted-foreground)] leading-relaxed">{account.bio[lang]}</p>
       )}
 
       {/* 1 fila x 3 columnas de posteos */}
       <div className="grid grid-cols-3 gap-2 p-3">
         {Array.from({ length: 3 }).map((_, i) => (
-          <PostTile key={i} base={account.mediaBase} file={account.posts[i] ?? ""} />
+          <PostTile key={i} base={account.mediaBase} file={account.posts[i] ?? ""} placeholder={t.mediaPlaceholder} />
         ))}
       </div>
     </div>
@@ -242,10 +266,13 @@ function AccountCard({ account }: { account: SocialAccount }) {
 }
 
 export default function MarketingFeed() {
+  const { lang } = useLanguage()
+  const t = copy[lang]
+
   return (
     <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
       {accounts.map((account) => (
-        <AccountCard key={account.handle} account={account} />
+        <AccountCard key={account.handle} account={account} lang={lang} t={t} />
       ))}
     </div>
   )
