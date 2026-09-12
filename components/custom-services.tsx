@@ -1,57 +1,41 @@
 "use client"
 
-import { Button } from "@/components/ui/button"
-import { Alert, AlertDescription } from "@/components/ui/alert"
 import { useLanguage } from "@/components/language-provider"
 
 const copy = {
   es: {
-    heading: "Servicios Personalizados",
-    subtitle: "Soluciones a medida para proyectos específicos",
-    approx: "aprox.",
-    noteLabel: "Nota:",
-    noteText: "Los planes mensuales requieren un mínimo de permanencia de 2 meses",
+    heading: "Servicios Aparte",
+    subtitle: "Sumá estos servicios a medida, sin necesidad de contratar un plan",
     services: [
       {
-        name: "Desarrollo de Landing Page",
-        price: "$300.000",
-        description: "Página web básica y optimizada para conversión",
-      },
-      {
-        name: "Landing Page con catálogo",
-        price: "$400.000",
-        description: "Landing page completa con sistema de catálogo integrado",
-      },
-      {
-        name: "Contenido audiovisual",
-        price: "$15.000",
+        name: "Grabación de Contenido",
+        price: "$20.000",
         period: "la hora",
-        description: "Grabación y fotografía de contenido para redes sociales",
+        description: "Grabación y fotografía de contenido para tus redes sociales",
+      },
+      {
+        name: "Google Maps para Empresas",
+        price: "$70.000",
+        period: "pago único",
+        description: "Alta y optimización de tu ficha en Google Maps para que te encuentren clientes con oficina cerca tuyo",
       },
     ],
   },
   en: {
-    heading: "Custom Services",
-    subtitle: "Tailored solutions for specific projects",
-    approx: "approx.",
-    noteLabel: "Note:",
-    noteText: "Monthly plans require a minimum commitment of 2 months",
+    heading: "Standalone Services",
+    subtitle: "Add these services on demand, no plan required",
     services: [
       {
-        name: "Landing Page Development",
-        price: "$300.000",
-        description: "Basic website optimized for conversion",
-      },
-      {
-        name: "Landing Page with catalog",
-        price: "$400.000",
-        description: "Complete landing page with an integrated catalog system",
-      },
-      {
-        name: "Audiovisual content",
-        price: "$15.000",
+        name: "Content Recording",
+        price: "$20.000",
         period: "per hour",
-        description: "Video and photo content production for social media",
+        description: "Video and photo content production for your social media",
+      },
+      {
+        name: "Google Maps for Businesses",
+        price: "$70.000",
+        period: "one-time payment",
+        description: "Setup and optimization of your Google Maps listing so nearby clients with an office can find you",
       },
     ],
   },
@@ -85,18 +69,12 @@ export default function CustomServices() {
             <div className="flex items-center gap-4 md:gap-6">
               <div className="text-right">
                 <div className="text-2xl font-bold">{service.price}</div>
-                <div className="text-xs text-muted-foreground">{service.period || t.approx}</div>
+                <div className="text-xs text-muted-foreground">{service.period}</div>
               </div>
             </div>
           </div>
         ))}
       </div>
-
-      <Alert className="max-w-4xl mx-auto mt-8">
-        <AlertDescription className="text-center">
-          <strong>{t.noteLabel}</strong> {t.noteText}
-        </AlertDescription>
-      </Alert>
     </section>
   )
 }

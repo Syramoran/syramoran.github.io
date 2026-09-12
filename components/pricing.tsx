@@ -1,21 +1,26 @@
 "use client"
 
-import { Check } from "lucide-react"
+import { Check, Sparkles } from "lucide-react"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
+import { Alert, AlertDescription } from "@/components/ui/alert"
 import { useLanguage } from "@/components/language-provider"
 
 const copy = {
   es: {
-    heading: "Este 2026 potencía a tu empresa",
-    subtitle: "Elegí el plan que mejor se adapte a tus necesidades y objetivos de negocio",
+    heading: "Redes Sociales + Publicidad (ADS)",
+    subtitle: "Presencia activa y profesional en Instagram y Facebook: contenido, estrategia y campañas pagas para que te vean donde tu audiencia ya está mirando.",
     popular: "Más popular",
     period: "mensual",
+    cta: "Elegir este plan",
+    packHint: "Combiná este plan con una Página Web y ahorrá 20% con el Pack Presencia Digital.",
+    adsNote: "La inversión en pauta publicitaria (presupuesto de Meta Ads) no está incluida y se paga aparte, directamente en la plataforma.",
+    permanenceNote: "Los planes mensuales requieren un mínimo de permanencia de 2 meses.",
     plans: [
       {
         name: "Plan Inicial",
         price: "$300.000",
-        description: "Perfecto para empezar tu presencia digital",
+        description: "Para arrancar con una presencia profesional y activa",
         services: [
           "Planificación de contenido",
           "8 publicaciones (post, reel o carrusel)",
@@ -23,46 +28,52 @@ const copy = {
           "4 secuencias de historias",
           "Programación de contenido",
           "Optimización de perfil",
+          "Campañas de ADS en Instagram y Facebook",
         ],
         featured: false,
       },
       {
         name: "Plan Estrella",
         price: "$450.000",
-        description: "Para marcas que buscan crecimiento constante",
+        description: "Para mantener una presencia constante y ganar visibilidad",
         services: [
-          "Plan Inicial +",
+          "Todo lo del Plan Inicial",
           "12 publicaciones en total (post, reel o carrusel)",
           "8 secuencias de historias",
           "Moderación de comentarios",
+          "Optimización de campañas de ADS",
         ],
         featured: true,
       },
       {
-        name: "Plan Pro",
+        name: "Plan Full",
         price: "$620.000",
-        description: "Solución completa para máximo impacto",
+        description: "Máximo alcance y reportes claros para tomar mejores decisiones",
         services: [
-          "Plan Estrella +",
+          "Todo lo del Plan Estrella",
           "16 publicaciones en total (post, reel o carrusel)",
           "12 secuencias de historias",
-          "Moderación de comentarios",
           "Seguimiento de métricas y reportes mensuales",
+          "Estrategia avanzada de campañas de ADS",
         ],
         featured: false,
       },
     ],
   },
   en: {
-    heading: "Power up your business this 2026",
-    subtitle: "Choose the plan that best fits your needs and business goals",
+    heading: "Social Media + Paid Ads (ADS)",
+    subtitle: "An active, professional presence on Instagram and Facebook: content, strategy, and paid campaigns to get you seen where your audience is already looking.",
     popular: "Most popular",
     period: "monthly",
+    cta: "Choose this plan",
+    packHint: "Combine this plan with a Website and save 20% with the Digital Presence Pack.",
+    adsNote: "Ad spend (Meta Ads budget) is not included and is paid separately, directly on the platform.",
+    permanenceNote: "Monthly plans require a minimum commitment of 2 months.",
     plans: [
       {
         name: "Starter Plan",
         price: "$300.000",
-        description: "Perfect for starting your digital presence",
+        description: "To start with an active, professional presence",
         services: [
           "Content planning",
           "8 posts (post, reel, or carousel)",
@@ -70,31 +81,33 @@ const copy = {
           "4 story sequences",
           "Content scheduling",
           "Profile optimization",
+          "ADS campaigns on Instagram and Facebook",
         ],
         featured: false,
       },
       {
         name: "Star Plan",
         price: "$450.000",
-        description: "For brands looking for steady growth",
+        description: "To keep a steady presence and grow your visibility",
         services: [
-          "Starter Plan +",
+          "Everything in the Starter Plan",
           "12 total posts (post, reel, or carousel)",
           "8 story sequences",
           "Comment moderation",
+          "ADS campaign optimization",
         ],
         featured: true,
       },
       {
-        name: "Pro Plan",
+        name: "Full Plan",
         price: "$620.000",
-        description: "Complete solution for maximum impact",
+        description: "Maximum reach and clear reports to guide better decisions",
         services: [
-          "Star Plan +",
+          "Everything in the Star Plan",
           "16 total posts (post, reel, or carousel)",
           "12 story sequences",
-          "Comment moderation",
           "Metrics tracking and monthly reports",
+          "Advanced ADS campaign strategy",
         ],
         featured: false,
       },
@@ -107,7 +120,7 @@ export default function Pricing() {
   const t = copy[lang]
 
   return (
-    <section id="pricing" className="py-20 mt-4 px-4 sm:px-6 lg:px-20 max-w-7xl mx-auto">
+    <section id="redes" className="py-20 px-4 sm:px-6 lg:px-20 max-w-7xl mx-auto">
       <div className="text-center mb-12">
         <h2 className="text-3xl md:text-4xl font-bold mb-4 text-balance">{t.heading}</h2>
         <p className="text-muted-foreground text-lg max-w-2xl mx-auto text-pretty">
@@ -146,8 +159,27 @@ export default function Pricing() {
                 ))}
               </ul>
             </CardContent>
+            <CardFooter>
+              <Button asChild variant={plan.featured ? "default" : "outline"} className="w-full">
+                <a href="#calculadora">{t.cta}</a>
+              </Button>
+            </CardFooter>
           </Card>
         ))}
+      </div>
+
+      <p className="text-center text-sm text-primary font-medium mt-8 flex items-center justify-center gap-1.5">
+        <Sparkles size={14} className="shrink-0" />
+        {t.packHint}
+      </p>
+
+      <div className="max-w-4xl mx-auto mt-4 space-y-3">
+        <Alert>
+          <AlertDescription className="text-center text-xs">{t.adsNote}</AlertDescription>
+        </Alert>
+        <Alert>
+          <AlertDescription className="text-center text-xs">{t.permanenceNote}</AlertDescription>
+        </Alert>
       </div>
     </section>
   )
