@@ -231,7 +231,7 @@ export default function Hero() {
                 <SiGithub size={17} />
               </a>
               <a
-                href="/CV - Syra Moran.pdf"
+                href="/CV-syramoran-actualizado.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hero-social inline-flex items-center gap-2 rounded-full bg-white px-4 py-2.5 text-xs font-bold text-primary transition duration-300 ease-out hover:-translate-y-0.5 hover:opacity-90"
